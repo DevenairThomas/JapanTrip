@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Trip — April 21–28 · Manisone & Deven</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070e;--pink:#ff2055;--cyan:#00e5ff;--yellow:#ffe600;
+  --green:#39ff14;--purple:#c97bff;--orange:#ff7c2a;
+  --text:#e8e8f0;--muted:#666688;
+  --border:rgba(255,32,85,0.18);--card:rgba(255,255,255,0.035);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:13.5px;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.07) 2px,rgba(0,0,0,0.07) 4px);pointer-events:none;z-index:9999}
+header{position:relative;text-align:center;padding:52px 24px 36px;overflow:hidden;border-bottom:1px solid var(--border)}
+header::before{content:'東京';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:240px;font-family:'Noto Sans JP',sans-serif;font-weight:700;color:rgba(255,32,85,0.035);pointer-events:none;white-space:nowrap}
+.h-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,11vw,104px);letter-spacing:.07em;line-height:.88;text-shadow:0 0 40px rgba(255,32,85,.35),0 0 80px rgba(255,32,85,.12)}
+h1 span{color:var(--pink);text-shadow:0 0 18px var(--pink),0 0 60px rgba(255,32,85,.5)}
+.h-dates{font-family:'Space Mono',monospace;font-size:11px;color:var(--cyan);margin-top:14px;letter-spacing:.1em;text-shadow:0 0 8px var(--cyan)}
+.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(7,7,14,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;padding:0 12px}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;background:none;border:none;color:var(--muted);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:15px 13px;cursor:pointer;transition:color .2s;border-bottom:2px solid transparent;white-space:nowrap}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--pink);border-bottom-color:var(--pink);text-shadow:0 0 8px rgba(255,32,85,.4)}
+.nav-divider{width:1px;background:var(--border);margin:8px 4px;flex-shrink:0}
+.main{max-width:1200px;margin:0 auto;padding:36px 18px 80px}
+.section{display:none}
+.section.active{display:block}
+.area-hdr{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.area-title{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:.05em}
+.area-kanji{font-size:14px;color:var(--pink);font-weight:300;opacity:.75}
+.note{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--cyan);margin-bottom:22px;padding:8px 14px;background:rgba(0,229,255,.05);border-left:2px solid var(--cyan);border-radius:2px;line-height:1.6}
+.note.warn{border-left-color:var(--pink);background:rgba(255,32,85,.06);color:#ff8fa8}
+.note.yel{border-left-color:var(--yellow);background:rgba(255,230,0,.05);color:var(--yellow)}
+.note.grn{border-left-color:var(--green);background:rgba(57,255,20,.05);color:#afffaa}
+.cat{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.12em;color:var(--pink);margin:28px 0 12px;display:flex;align-items:center;gap:12px}
+.cat::after{content:'';flex:1;height:1px;background:var(--border)}
+.cat.cy{color:var(--cyan)}.cat.yl{color:var(--yellow)}.cat.gn{color:var(--green)}
+.cat.pu{color:var(--purple)}.cat.or{color:var(--orange)}.cat.fo{color:#ff9f43}
+.cat.ni{color:#a29bfe}.cat.at{color:#00cec9}.cat.ph{color:#fd79a8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:14px;margin-bottom:8px}
+.grid-wide{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:16px;transition:border-color .2s,transform .15s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--c,var(--pink));opacity:.65}
+.card:hover{border-color:rgba(255,32,85,.22);transform:translateY(-2px)}
+.card.cy{--c:var(--cyan)}.card.yl{--c:var(--yellow)}.card.gn{--c:var(--green)}
+.card.pu{--c:var(--purple)}.card.or{--c:var(--orange)}.card.fo{--c:#ff9f43}
+.card.ni{--c:#a29bfe}.card.at{--c:#00cec9}.card.ph{--c:#fd79a8}
+.cname{font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.tag{font-size:8.5px;font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:700}
+.tf{background:rgba(255,32,85,.15);color:var(--pink)}
+.tr{background:rgba(255,230,0,.12);color:var(--yellow)}
+.tb{background:rgba(57,255,20,.1);color:var(--green)}
+.tg{background:rgba(0,229,255,.1);color:var(--cyan)}
+.ts{background:rgba(201,123,255,.15);color:var(--purple)}
+.tu{background:rgba(255,124,42,.12);color:var(--orange)}
+.ta{background:rgba(255,32,85,.2);color:#ff90aa}
+.tc{background:rgba(57,255,20,.1);color:var(--green)}
+.tga{background:rgba(255,230,0,.12);color:var(--yellow)}
+.te{background:rgba(255,255,255,.07);color:#bbb}
+.tp{background:var(--pink);color:#fff}
+.tsk{background:rgba(255,255,255,.06);color:var(--muted);text-decoration:line-through}
+.tsh{background:rgba(0,229,255,.1);color:var(--cyan)}
+.tlx{background:rgba(255,230,0,.14);color:var(--yellow)}
+.tsz{background:rgba(255,124,42,.12);color:var(--orange)}
+.tev{background:rgba(255,32,85,.25);color:#fff}
+.tdl{background:#ff2055;color:#fff;animation:pulse 1.5s infinite}
+.tfo{background:rgba(255,159,67,.15);color:#ff9f43}
+.tres{background:rgba(255,32,85,.3);color:#fff}
+.tni{background:rgba(162,155,254,.15);color:#a29bfe}
+.tat{background:rgba(0,206,201,.12);color:#00cec9}
+.twt{background:rgba(0,229,255,.08);color:var(--cyan)}
+.tph{background:rgba(253,121,168,.15);color:#fd79a8}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.cdesc{font-size:12px;color:var(--muted);line-height:1.65}
+.cdesc strong{color:var(--yellow);font-weight:400}
+.addr{display:block;color:rgba(0,229,255,.65);font-family:'Space Mono',monospace;font-size:10px;margin-top:4px}
+/* FLIGHT / HOTEL CARDS */
+.fcard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:18px;margin-bottom:12px}
+.fcard-title{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.frow{display:flex;gap:12px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);flex-wrap:wrap}
+.frow:last-child{border-bottom:none}
+.fnum{font-family:'Space Mono',monospace;font-size:11px;color:var(--yellow);min-width:56px}
+.froute{font-size:12px;color:var(--text);flex:1}
+.ftime{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--muted);text-align:right}
+.hcard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:18px;position:relative;overflow:hidden}
+.hcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--hc,var(--cyan))}
+.hname{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.hdates{font-family:'Space Mono',monospace;font-size:10px;color:var(--yellow);letter-spacing:.06em;margin-bottom:8px}
+.hdetail{font-size:12px;color:var(--muted);line-height:1.65}
+/* GROUP 2 REFERENCE */
+.g2block{background:rgba(0,229,255,.03);border:1px solid rgba(0,229,255,.12);border-radius:5px;padding:20px;margin-bottom:12px}
+.g2title{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(0,229,255,.12)}
+.g2row{display:flex;gap:12px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);flex-wrap:wrap;font-size:12px}
+.g2row:last-child{border-bottom:none}
+.g2label{color:var(--yellow);font-family:'Space Mono',monospace;font-size:10px;min-width:80px;padding-top:2px}
+.g2val{color:var(--muted);flex:1;line-height:1.55}
+/* EVENT CARDS */
+.ecard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:18px;position:relative;overflow:hidden;margin-bottom:10px}
+.ecard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ec,var(--pink))}
+.ecard.ur{--ec:var(--pink)}.ecard.op{--ec:var(--cyan)}.ecard.on{--ec:var(--green)}.ecard.fl{--ec:var(--yellow)}
+.etitle{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.edate{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;margin-bottom:8px}
+.edate.ur{color:var(--pink)}.edate.op{color:var(--cyan)}.edate.on{color:var(--green)}.edate.fl{color:var(--yellow)}
+.ebody{font-size:12px;color:var(--muted);line-height:1.65}
+/* HUNT LIST */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.wi{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;cursor:pointer;transition:border-color .15s;user-select:none}
+.wi:hover{border-color:rgba(255,32,85,.3)}
+.wi.ck{opacity:.4}
+.wi.ck .wn{text-decoration:line-through}
+.wchk{width:15px;height:15px;border:1.5px solid var(--pink);border-radius:2px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--pink)}
+.wn{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--text);margin-bottom:2px}
+.wh{font-size:11px;color:var(--muted)}
+/* ART BOOKS */
+.abgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.abcard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:15px;border-top:3px solid var(--pink)}
+.abartist{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.05em;color:var(--text);margin-bottom:4px}
+.abnote{font-size:11.5px;color:var(--muted);line-height:1.6}
+/* SIZING */
+.szwarn{background:rgba(255,124,42,.08);border:1px solid rgba(255,124,42,.25);border-radius:5px;padding:14px 16px;margin-bottom:18px;font-size:12px;color:var(--orange);line-height:1.7}
+.szwarn strong{color:var(--yellow);display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+/* TIPS */
+.tlist{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:14px 16px;font-size:12.5px;color:var(--muted);line-height:1.7;border-left:3px solid var(--yellow)}
+.tip strong{color:var(--yellow);display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+/* CHEAT SHEET */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cgrid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+.ctable{width:100%;border-collapse:collapse}
+.ctable td{padding:5px 8px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.04)}
+.ctable td:first-child{color:var(--cyan);font-family:'Space Mono',monospace;font-size:13px;white-space:nowrap}
+.ctable td:nth-child(2){color:var(--muted);font-family:'Space Mono',monospace;font-size:10px}
+.ctable td:last-child{color:var(--text)}
+/* QREF */
+.qref{width:100%;border-collapse:collapse;margin-bottom:8px}
+.qref th{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);padding:8px 10px;border-bottom:1px solid var(--border);text-align:left}
+.qref td{padding:8px 10px;font-size:12px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.55}
+.qref td:first-child{color:var(--cyan);font-family:'Space Mono',monospace;font-size:10.5px;white-space:nowrap}
+.qref td strong{color:var(--text)}
+/* PHARMACY */
+.rxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.rxcard{background:var(--card);border:1px solid rgba(253,121,168,.15);border-radius:5px;padding:14px;border-left:3px solid #fd79a8}
+.rxq{font-family:'Space Mono',monospace;font-size:10.5px;color:#fd79a8;margin-bottom:4px;letter-spacing:.04em}
+.rxa{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.rxnote{font-size:11px;color:var(--muted)}
+.rxwarn{font-size:10.5px;color:var(--pink);margin-top:4px;font-family:'Space Mono',monospace}
+.scroll-top{position:fixed;bottom:22px;right:22px;width:38px;height:38px;background:var(--pink);color:#fff;border:none;border-radius:4px;font-size:17px;cursor:pointer;z-index:200;opacity:.85;line-height:1}
+@media print{body::before,.nav-wrap,.scroll-top{display:none}.section{display:block!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-label">April 21–28 · Collector's Field Guide · Manisone & Deven</div>
+  <h1>TOKYO<br><span>2026</span></h1>
+  <div class="h-dates">▸ HOTEL GROOVE SHINJUKU &nbsp;·&nbsp; AKIHABARA · IKEBUKURO · SHIBUYA · NAKANO · MITAKA · GINZA</div>
+</header>
+
+<div class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="go('logistics',this)">Logistics ✈</button>
+    <button class="tab-btn" onclick="go('atev',this)">Attractions & Events</button>
+    <div class="nav-divider"></div>
+    <button class="tab-btn" onclick="go('shinjuku',this)">Shinjuku ★</button>
+    <button class="tab-btn" onclick="go('akiba',this)">Akihabara</button>
+    <button class="tab-btn" onclick="go('ikebukuro',this)">Ikebukuro</button>
+    <button class="tab-btn" onclick="go('shibuya',this)">Shibuya</button>
+    <button class="tab-btn" onclick="go('nakano',this)">Nakano</button>
+    <button class="tab-btn" onclick="go('mitaka',this)">Mitaka</button>
+    <button class="tab-btn" onclick="go('ginza',this)">Ginza & High-End</button>
+    <button class="tab-btn" onclick="go('other',this)">Other Areas</button>
+    <div class="nav-divider"></div>
+    <button class="tab-btn" onclick="go('tips',this)">Tips & Cheat Sheet</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ══════════════════════ LOGISTICS ══════════════════════ -->
+<div id="logistics" class="section active">
+  <div class="area-hdr"><div class="area-title">Logistics</div><div class="area-kanji">旅行情報 — April 21–28</div></div>
+
+  <div class="cat cy">Flights — Manisone & Deven</div>
+  <div class="fcard">
+    <div class="fcard-title">Outbound — April 21</div>
+    <div class="frow"><div class="fnum">DL384</div><div class="froute">Boston → Seattle</div><div class="ftime">Departs 7:37 AM · Arrives 10:55 AM</div></div>
+    <div class="frow"><div class="fnum">DL167</div><div class="froute">Seattle → Tokyo (HND)</div><div class="ftime">Departs 11:40 AM · Arrives 2:15 PM Wed Apr 22</div></div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title">Return — April 28</div>
+    <div class="frow"><div class="fnum">DL120</div><div class="froute">Tokyo (HND) → Minneapolis</div><div class="ftime">Departs 4:05 PM · Arrives 1:24 PM (same day)</div></div>
+    <div class="frow"><div class="fnum">DL2591</div><div class="froute">Minneapolis → Boston</div><div class="ftime">Departs 3:42 PM · Arrives 7:35 PM</div></div>
+  </div>
+
+  <div class="cat cy">Hotel — Full Stay</div>
+  <div class="grid">
+    <div class="hcard" style="--hc:var(--cyan)">
+      <div class="hname">Hotel Groove Shinjuku (Tokyu Kabukicho Tower)</div>
+      <div class="hdates">April 22 – April 28 · Check-in 3:00 PM · Check-out 11:00 AM</div>
+      <div class="hdetail">Kabukicho entertainment district immediately outside. Godzilla head visible on nearby Hotel Gracery — view from across the street at night.<span class="addr">1 Chome-29-1 Kabukicho, Shinjuku City, Tokyo 160-0021</span><span class="addr">Phone: +81 3-6233-8888</span></div>
+    </div>
+  </div>
+
+  <div class="cat">Airport Transfer — April 28 Departure</div>
+  <div class="grid">
+    <div class="card cy">
+      <div class="cname">Hotel Groove Shinjuku → Haneda (HND)</div>
+      <div class="tags"><span class="tag tres">DL120 4:05 PM · Be at HND by 1:30 PM</span></div>
+      <div class="cdesc">Option A: Keikyu Line from Shinagawa Station<br>Option B: Tokyo Monorail from Hamamatsucho Station<br>Allow ~45–60 min travel + check-in buffer</div>
+    </div>
+  </div>
+
+  <div class="cat">Pre-Trip To-Do</div>
+  <div class="grid">
+    <div class="card cy"><div class="cname">Transport</div><div class="cdesc">Download Suica app before leaving · Inform phone provider of international travel</div></div>
+    <div class="card fo"><div class="cname">Reservations</div><div class="cdesc">Book Shibuya Sky tickets online (sells out) · Book reservation-required restaurants: Tsukiji Omakase, Sushi Labo, Sushi Sagane · Book tattoo artist if getting tattooed — top artists fill months out</div></div>
+    <div class="card yl"><div class="cname">Shopping Research</div><div class="cdesc">Confirm Drud Toy Shop current address · Look up Kutsu no Hikari and Big-b Tokyo locations for large shoe sizes · Check GSC + Tamashii Nations pop-up status on Twitter/X before leaving</div></div>
+    <div class="card gn"><div class="cname">Resources</div><div class="cdesc">Watch Tokyo BookHunter on YouTube — covers off-map shops, especially Kichijoji/Mitaka and Jimbocho</div></div>
+  </div>
+
+  <div class="cat yl">Group 2 Reference — Souda, Victor & Chris</div>
+  <div class="note yel">For reference only — their itinerary runs separately. Tokyo Apr 22–24, then Osaka, then Asakusa before departure.</div>
+
+  <div class="g2block">
+    <div class="g2title">Flights</div>
+    <div class="g2row"><div class="g2label">Outbound</div><div class="g2val">DL2802 Nashville → Atlanta (7:30 AM → 9:41 AM) · DL295 Atlanta → Tokyo HND (11:10 AM → 2:20 PM Wed Apr 22)</div></div>
+    <div class="g2row"><div class="g2label">Return</div><div class="g2val">DL294 Tokyo HND → Atlanta (3:15 PM → 2:50 PM same day) · DL1490 Atlanta → Nashville (6:13 PM → 6:24 PM)</div></div>
+  </div>
+
+  <div class="g2block">
+    <div class="g2title">Hotels</div>
+    <div class="g2row"><div class="g2label">Tokyo</div><div class="g2val"><strong>Hotel Vintage Tokyo Tsukiji</strong> · Apr 22–24 · Check-in 3PM, Check-out 12PM · 2 Chome-10-7 Irifune, Chuo City · +81 3-6262-8017 · Close to Tsukiji Outer Market and Ginza</div></div>
+    <div class="g2row"><div class="g2label">Osaka</div><div class="g2val"><strong>Hotel New Otani Osaka</strong> · Apr 24–27 · Check-in 3PM, Check-out 12PM · 1 Chome-4-1 Shiromi, Chuo Ward · +81 6-6941-1111 · Buy KIX express train tickets from Klook, pick up at service desk</div></div>
+    <div class="g2row"><div class="g2label">Asakusa</div><div class="g2val"><strong>Asakusa View Hotel Annex Rokku</strong> · Apr 27–28 · Check-in 3PM, Check-out 12PM · 2 Chome-9-10 Asakusa, Taito City · +81 570-003-235</div></div>
+  </div>
+
+  <div class="g2block">
+    <div class="g2title">Rough Itinerary</div>
+    <div class="g2row"><div class="g2label">Apr 22–24</div><div class="g2val">Tokyo (Hotel Vintage Tsukiji) — Shibuya, Shinjuku, Akihabara overlap days with Group 1</div></div>
+    <div class="g2row"><div class="g2label">Apr 24</div><div class="g2val">Check out Tsukiji hotel · Shinkansen to Osaka (reserved seats) · Check in Hotel New Otani · Dotonbori, Shinsekai, Kuromon Market</div></div>
+    <div class="g2row"><div class="g2label">Apr 25</div><div class="g2val">Osaka — Dotonbori · Wagyu IDATEN · Namba Yakase Shrine</div></div>
+    <div class="g2row"><div class="g2label">Apr 26</div><div class="g2val">Kyoto day trip from Osaka (~15 min Shinkansen) — Fushimi Inari (go early), Arashiyama Bamboo Grove, Gion at dusk, Nishiki Market</div></div>
+    <div class="g2row"><div class="g2label">Apr 27</div><div class="g2val">Check out Hotel New Otani · Shinkansen back to Tokyo · Check in Asakusa View Hotel · Senso-ji, Nakamise Shopping Street (hand towels here), Kappabashi, Hoppy Street</div></div>
+    <div class="g2row"><div class="g2label">Apr 28</div><div class="g2val">Check out by 12PM · Keikyu Airport Line from Asakusa Station to Haneda (~30 min) · Be at HND by 12:30 PM · DL294 departs 3:15 PM</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ ATTRACTIONS & EVENTS ══════════════════════ -->
+<div id="atev" class="section">
+  <div class="area-hdr"><div class="area-title">Attractions & Events</div><div class="area-kanji">観光 & 期間限定</div></div>
+  <div class="note warn">⚠ Timed events drive the first 3 days. Hit deadlines before anything else.</div>
+
+  <div class="cat">Pop-Ups & Timed Events — April 22</div>
+  <div class="ecard ur">
+    <div class="tags"><span class="tag tdl">ENDS APR 24</span><span class="tag tev">Pop-Up</span></div>
+    <div class="etitle">Ace Attorney × Sumie SHOP</div>
+    <div class="edate ur">SHIBUYA TSUTAYA 6F (IP Bookstore) · Through April 24</div>
+    <div class="ebody">Giant ink wash (sumie) paintings, original goods, gold-foil postcards (4 types). Hit Day 1 (Apr 22) — closes April 24.</div>
+  </div>
+  <div class="ecard ur">
+    <div class="tags"><span class="tag tdl">ENDS APR 24</span><span class="tag tev">Animate Fair</span></div>
+    <div class="etitle">JoJo's Bizarre Adventure — Animate Fair (Final Phase)</div>
+    <div class="edate ur">Animate Shibuya (Apr 22) + Animate Shinjuku (Apr 23) · Through April 24</div>
+    <div class="ebody">Golden Wind &amp; Stone Ocean newly illustrated goods. <strong>Spend ¥2,000 on JoJo items → bonus mini card.</strong> Life-size character panels at select locations.</div>
+  </div>
+  <div class="ecard on">
+    <div class="tags"><span class="tag tev">Cafe Event</span></div>
+    <div class="etitle">Resleriana's Atelier — 2.5th Anniversary Gratte</div>
+    <div class="edate on">Animate Shibuya · Through April 26</div>
+    <div class="ebody">Themed lattes, cookies, AND ice cream — Shibuya location gets all three. Items while supplies last.</div>
+  </div>
+
+  <div class="cat">Pop-Ups & Timed Events — April 23</div>
+  <div class="ecard ur">
+    <div class="tags"><span class="tag tdl">ENDS APR 24</span></div>
+    <div class="etitle">JoJo's Bizarre Adventure — Animate Fair (continued)</div>
+    <div class="edate ur">Animate Shinjuku (Marui Men) · Ends April 24</div>
+    <div class="ebody">Same ¥2,000 → bonus card deal. Already on the Shinjuku route.</div>
+  </div>
+  <div class="ecard op">
+    <div class="tags"><span class="tag tev">Exhibition</span><span class="tag tg" style="font-size:8px">OPENS APR 22</span></div>
+    <div class="etitle">DAN DA DAN — Animation Works Exhibition</div>
+    <div class="edate op">Matsuya Ginza 8F, Event Square · April 22 – May 11</div>
+    <div class="ebody">First-ever DAN DA DAN exhibition. Season 1 &amp; 2 behind-the-scenes by Science SARU. Immersive exhibition + unreleased production art. <strong>Special ticket: 7 cards + acrylic card case.</strong> ~35 min from Shinjuku. <strong>Rimowa Matsuya Ginza 2F is in the same building — combine both.</strong></div>
+  </div>
+
+  <div class="cat">Pop-Ups & Timed Events — April 24 (Deadline)</div>
+  <div class="note warn">April 24 hard cutoff: Ace Attorney × Sumie SHOP + JoJo Animate Fair (Shibuya + Shinjuku). Use Apr 23 afternoon or morning of Apr 24 as buffer if either hasn't been hit.</div>
+
+  <div class="cat">Pop-Ups & Timed Events — April 25–27</div>
+  <div class="ecard op">
+    <div class="tags"><span class="tag tev">Exhibition</span><span class="tag tg" style="font-size:8px">OPENS APR 25</span></div>
+    <div class="etitle">Final Fantasy XIV — Warrior of Light Exhibition</div>
+    <div class="edate op">Ikebukuro Sunshine City — Bunka Kaikan 3F, Exhibition Hall C · April 25 – May 10</div>
+    <div class="ebody">World-setting displays and commemorative goods. Pair with Super Potato, gachapon hall, and Lashinbang on Ikebukuro day.</div>
+  </div>
+  <div class="ecard on">
+    <div class="tags"><span class="tag tev">Merch</span></div>
+    <div class="etitle">Fairy Tail — 20th Anniversary Commemorative Goods</div>
+    <div class="edate on">eeo Store — Ikebukuro Main Store · Ongoing from March 21</div>
+    <div class="ebody">20th anniversary merch with original Hiro Mashima illustrations. Add-on during Ikebukuro day.</div>
+  </div>
+  <div class="ecard fl">
+    <div class="tags"><span class="tag tev">Collab</span><span class="tag tr" style="font-size:8px">ALL TRIP</span></div>
+    <div class="etitle">Blue Lock Episode Sky @ Tokyo Skytree</div>
+    <div class="edate fl">Tembo Galleria, Oshiage · April 9 – July 6</div>
+    <div class="ebody">Collab cafe menu, merch, photo spots. Observation deck ticket includes exclusive novelties. ~30 min from Shinjuku. Flexible — any day.</div>
+  </div>
+
+  <div class="cat">Pop-Up Quick Reference</div>
+  <table class="qref">
+    <tr><th>Day</th><th>Events</th><th>Deadline?</th></tr>
+    <tr><td>Apr 22</td><td><strong>Ace Attorney Sumie</strong> (TSUTAYA 6F) · <strong>JoJo Fair</strong> (Animate Shibuya) · Resleriana Cafe</td><td style="color:var(--pink);font-weight:700">APR 24 ⚠</td></tr>
+    <tr><td>Apr 23</td><td><strong>JoJo Fair</strong> (Animate Shinjuku) · Optional: <strong>DAN DA DAN</strong> Exhibition + Rimowa (Ginza detour)</td><td style="color:var(--pink);font-weight:700">APR 24 ⚠</td></tr>
+    <tr><td>Apr 24</td><td>Last call — Ace Attorney + JoJo Fair both close today</td><td style="color:var(--pink);font-weight:700">APR 24 FINAL</td></tr>
+    <tr><td>Apr 25–27</td><td><strong>FFXIV Exhibition</strong> opens Apr 25 (Sunshine City) · Fairy Tail eeo Store (Ikebukuro)</td><td>—</td></tr>
+    <tr><td>Any Day</td><td><strong>Blue Lock</strong> @ Tokyo Skytree (through July 6)</td><td>—</td></tr>
+  </table>
+
+  <div class="cat at">Observation & Views</div>
+  <div class="grid">
+    <div class="card at">
+      <div class="cname">Shibuya Sky</div>
+      <div class="tags"><span class="tag tat">Views</span><span class="tag tp">Book in Advance</span></div>
+      <div class="cdesc">Open-air rooftop above Shibuya Scramble Square. Best at dusk or after dark — views of Shibuya crossing and city grid. <strong>Tickets sell out — book online before leaving home.</strong><span class="addr">2 Chome-24-12 Shibuya Scramble Square, 14F/45F/46F + Rooftop</span></div>
+    </div>
+  </div>
+
+  <div class="cat at">Onsen</div>
+  <div class="grid">
+    <div class="card at">
+      <div class="cname">Thermae-Yu Onsen</div>
+      <div class="tags"><span class="tag tat">Onsen</span><span class="tag te">Walking Distance from Hotel</span></div>
+      <div class="cdesc">In Kabukicho — walking distance from Hotel Groove Shinjuku. Open late. <strong>⚠ TATTOO POLICY: Verify before going. Ask about private bath options if restrictions apply.</strong><span class="addr">1 Chome-1-2 Kabukicho, Shinjuku B1F</span></div>
+    </div>
+  </div>
+
+  <div class="cat at">Shrines & Parks</div>
+  <div class="grid">
+    <div class="card at"><div class="cname">Meiji Shrine (明治神宮)</div><div class="tags"><span class="tag tat">Cultural</span><span class="tag te">Free</span></div><div class="cdesc">Major Shinto shrine in a forested compound. Free entry. Adjacent to Harajuku — combine with Shibuya/Harajuku day. Takeshita-dori is a 5-minute walk away.<span class="addr">1-1 Yoyogikamizonocho, Shibuya</span></div></div>
+    <div class="card at"><div class="cname">Shinjuku Gyoen National Garden</div><div class="tags"><span class="tag tat">Nature</span></div><div class="cdesc">Large national garden — late April cherry blossom remnants and late bloomers possible. Entry fee required.<span class="addr">11 Naitomachi, Shinjuku City</span></div></div>
+    <div class="card at"><div class="cname">Sakuragaokachō (Cherry Blossoms)</div><div class="tags"><span class="tag tat">Nature</span></div><div class="cdesc">Cherry blossom viewing spot in Shibuya. Late April may still have late bloomers. Casual walk area.</div></div>
+    <div class="card at"><div class="cname">Kanda Myojin Shrine</div><div class="tags"><span class="tag tat">Cultural</span></div><div class="cdesc">Guardian shrine for otaku and tech workers near Akihabara. Sells anime collab ema and omamori charms. Quick 15-min detour from the main Akihabara strip.</div></div>
+  </div>
+
+  <div class="cat at">Neighborhoods & Experiences</div>
+  <div class="grid">
+    <div class="card at"><div class="cname">Shin-Okubo (Korea Town)</div><div class="tags"><span class="tag tat">Neighborhood</span></div><div class="cdesc">One stop from Shinjuku on the Yamanote Line. Korean BBQ, cosmetics, K-pop goods, Korean street food.<span class="addr">1 Chome-4-15 Hyakunincho, Shinjuku City</span></div></div>
+    <div class="card at"><div class="cname">Photomatic Shinjuku (Photo Booth)</div><div class="tags"><span class="tag te">Experience</span></div><div class="cdesc">Japanese purikura photo booth. Right in Kabukicho.<span class="addr">1 Chome-5-1 Kabukicho (Shinjuku Kuyakusho 1F)</span></div></div>
+    <div class="card at"><div class="cname">Kawaii Monster Cafe (Harajuku)</div><div class="tags"><span class="tag te">Experience</span></div><div class="cdesc">Hypercolor maximalist themed cafe. Check if open during April dates before going.</div></div>
+    <div class="card at"><div class="cname">MoN Takanawa — Museum of Narratives</div><div class="tags"><span class="tag tat">Museum</span></div><div class="cdesc">Newer art/narrative museum — check what's showing in April before deciding.</div></div>
+    <div class="card at"><div class="cname">Tokyo City Flea Market — Oi Racecourse</div><div class="tags"><span class="tag tp">Must-See</span><span class="tag tr">APR 25–26</span></div><div class="cdesc">FREE entry. 300–500 vendors. April 25 (Sat) + April 26 (Sun). <strong>Arrive 9am — leave by noon → Ikebukuro.</strong> Cancelled in rain — check weather night before. See Other Areas tab for full detail.<span class="addr">2-1-2 Katsushima, Shinagawa · Oi Keibajo-mae Station (Tokyo Monorail)</span></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SHINJUKU ══════════════════════ -->
+<div id="shinjuku" class="section">
+  <div class="area-hdr"><div class="area-title">Shinjuku</div><div class="area-kanji">新宿 — Base Camp</div></div>
+  <div class="note">Hotel Groove Shinjuku (Tokyu Kabukicho Tower) — home base for the full trip. Kabukicho entertainment district immediately outside.</div>
+
+  <div class="cat">Hotel Neighborhood</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Kabukicho Tower</div><div class="tags"><span class="tag tc">Arcade</span><span class="tag te">Experience</span></div><div class="cdesc">Crane games, food halls, arcades — multi-floor, right outside hotel. Moufusan plushie crane games likely here.</div></div>
+    <div class="card"><div class="cname">GiGO Arcade (Kabukicho)</div><div class="tags"><span class="tag tc">Arcade</span></div><div class="cdesc">One of the better GiGO branches — actual game cabinets alongside cranes. Multi-floor, late hours.</div></div>
+  </div>
+
+  <div class="cat">Marui Complex — Multiple Buildings, One Block</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Marui Annex ← KEY STOP</div><div class="tags"><span class="tag tp">Priority</span><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span><span class="tag tr">Retro</span></div><div class="cdesc">Godzilla store · Surugaya (<strong>BETTER than Akihabara Surugaya — check here first</strong>) · Cinnamoroll Cafe · retro games section · Medicos (permanent JoJo + collab goods year-round) · Prime 1 Studio display models · Lashinbang (best in Shinjuku)</div></div>
+    <div class="card"><div class="cname">Marui Men</div><div class="tags"><span class="tag tdl">JOJO ENDS APR 24</span></div><div class="cdesc">Animate Shinjuku inside. <strong>JoJo Animate Fair through April 24 — ¥2,000 spend = bonus mini card.</strong></div></div>
+    <div class="card"><div class="cname">Marui Main / Q Court Garden</div><div class="tags"><span class="tag te">Pop-Ups</span></div><div class="cdesc">Rotating pop-ups — walk through to see what's active.</div></div>
+  </div>
+
+  <div class="cat">West Side Shinjuku — Collector Shops</div>
+  <div class="grid">
+    <div class="card cy"><div class="cname">Yellow Submarine</div><div class="tags"><span class="tag ts">Sofubi</span><span class="tag tf">Figures</span><span class="tag tp">Priority</span></div><div class="cdesc">Strong sofubi and designer toy section — also Gunpla and vintage figures. Priority sofubi stop on the west side.</div></div>
+    <div class="card"><div class="cname">Book Off (behind Yellow Submarine)</div><div class="tags"><span class="tag tu">Secondhand</span><span class="tag tb">Books</span><span class="tag tr">Retro Games</span></div><div class="cdesc">Large location. Hunt: used manga, art books, gravure photobooks, retro games. <strong>Bargain bins often have art books for ¥300–¥1,000.</strong></div></div>
+    <div class="card"><div class="cname">Yodobashi Camera (west side)</div><div class="tags"><span class="tag tg">Games</span><span class="tag tr">Hardware</span><span class="tag twt">Watches</span></div><div class="cdesc">Physical game hunting, accessories, retro hardware, solid watch floor. Tax-free with passport over ¥5,000.</div></div>
+    <div class="card"><div class="cname">Gachapon Street (across from Yodobashi)</div><div class="tags"><span class="tag tga">Gachapon</span></div><div class="cdesc">Concentrated row of gachapon machines — bring a stack of ¥100 coins.</div></div>
+    <div class="card"><div class="cname">Tower Records Shinjuku</div><div class="tags"><span class="tag tr">Physical Media</span></div><div class="cdesc">Anime soundtracks, Japanese film scores, indie labels, limited edition CDs. Dedicated anime/J-pop floor.</div></div>
+    <div class="card"><div class="cname">ME TOKYO Shinjuku</div><div class="tags"><span class="tag tc">UFO Catchers</span></div><div class="cdesc">Dedicated crane game / UFO catcher center for focused prize hunting.</div></div>
+  </div>
+
+  <div class="cat">Other Shinjuku — Shops</div>
+  <div class="grid">
+    <div class="card gn"><div class="cname">Kinokuniya Bookstore ← PRIORITY</div><div class="tags"><span class="tag tb">Books</span><span class="tag tp">Priority</span></div><div class="cdesc">Art books, photography books, manga, English titles — all under one roof. Check the 画集 (gashu) section. Sanrio store in the building.</div></div>
+    <div class="card"><div class="cname">Square Enix Artenia Cafe</div><div class="tags"><span class="tag tg">Square Enix</span><span class="tag te">Collab Cafe</span></div><div class="cdesc">Rotating FF, Dragon Quest, NieR collab menus + exclusive merch. Check what theme is running in April.</div></div>
+  </div>
+
+  <div class="cat or">Clothing & Sizing — Shinjuku</div>
+  <div class="szwarn"><strong>Reality Check</strong>Standard Japanese L ≈ US S/M. Novelty T-shirts and hoodies from Animate/Jump Shop often max out at XL (fits more like US M/L). Uniqlo collab items cut for international sizing — buy wearable merch there.</div>
+  <div class="grid">
+    <div class="card or"><div class="cname">Sakazen Shinjuku ← BEST BET</div><div class="tags"><span class="tag tsz">XS–4XL</span><span class="tag tp">Best for Larger Builds</span></div><div class="cdesc">Men's clothing chain for all sizes. Dedicated plus-size floors 5F–7F. European and international brands on floors 3–4.<span class="addr">1 min from Shinjuku-Sanchome Station (C7 exit)</span></div></div>
+    <div class="card"><div class="cname">Gap Japan (Shinjuku)</div><div class="tags"><span class="tag tsz">US Sizing</span></div><div class="cdesc">Carries US sizing. Functional for basics.</div></div>
+  </div>
+
+  <div class="cat fo">Food — Shinjuku</div>
+  <div class="grid">
+    <div class="card fo"><div class="cname">Sushi Sagane (Omakase)</div><div class="tags"><span class="tag tfo">Omakase</span><span class="tag tres">Book Ahead</span></div><div class="cdesc">Full omakase experience.<span class="addr">7 Chome-13-6 Nishishinjuku, Shinjuku</span></div></div>
+    <div class="card fo"><div class="cname">Sushi Bar Nigrite (Cheap Omakase)</div><div class="tags"><span class="tag tfo">Omakase</span></div><div class="cdesc">Budget-friendly omakase option. Good entry point.<span class="addr">7 Chome-9-15 Nishishinjuku, Shinjuku</span></div></div>
+    <div class="card fo"><div class="cname">Omoide Yokocho (Memory Lane)</div><div class="tags"><span class="tag tfo">Yakitori</span><span class="tag te">After 8pm</span></div><div class="cdesc">Tiny yakitori stalls, smoky, old Tokyo atmosphere.<span class="addr">1 Chome-2 Nishishinjuku, Shinjuku</span></div></div>
+  </div>
+
+  <div class="cat ni">Nightlife — Shinjuku</div>
+  <div class="grid">
+    <div class="card ni"><div class="cname">Golden Gai — Bar Hopping</div><div class="tags"><span class="tag tni">Bars</span><span class="tag tp">Must-Do</span></div><div class="cdesc">~200 tiny themed bars in narrow alleys. Each fits 6–8 people — horror, jazz, anime, film, etc. Some have cover charge (¥500–¥1,000) — check at the door. Best after 9pm.<span class="addr">Kabukicho, Shinjuku (1 Chome-1-6 area)</span></div></div>
+    <div class="card ni"><div class="cname">Warp Tokyo</div><div class="tags"><span class="tag tni">Club</span><span class="tag te">Casual</span></div><div class="cdesc">Casual and popular — plays mainstream pop, some EDM. Accessible vibe, good entry-level Shinjuku club option. Not heavy on a specific genre, which makes it easy for a mixed group.</div></div>
+    <div class="card ni"><div class="cname">ZeroTokyo</div><div class="tags"><span class="tag tni">Club</span><span class="tag te">Techno · DnB · J-HipHop</span><span class="tag tp">Check Schedule</span></div><div class="cdesc">Techno, Drum and Bass, Japanese Hip Hop — schedule changes per night so check before going. <strong>Cashless only — no cash accepted.</strong> Different music every night means the vibe varies significantly by date.</div></div>
+    <div class="card"><div class="cname">Taito Station Shinjuku South Exit</div><div class="tags"><span class="tag tc">Arcade</span><span class="tag te">Late Night</span></div><div class="cdesc">Multi-floor arcade. Runs until midnight or later.<span class="addr">3 Chome-35-8 Shinjuku</span></div></div>
+  </div>
+
+  <div class="cat">Shinjuku Experiences</div>
+  <div class="grid">
+    <div class="card"><div class="cname">3D Cat Billboard</div><div class="tags"><span class="tag te">Free · 2 Min</span></div><div class="cdesc">Shinjuku East Exit corner. Anamorphic 3D cat ad — stand at the designated corner spot.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Shinjuku</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Katsuya Terada Art Book (寺田克也)</div><div class="wh">Kinokuniya · confirm name before searching</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">JoJo Merch (year-round)</div><div class="wh">Medicos section in Marui Annex · Animate Shinjuku / Marui Men (Fair ends Apr 24)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Japanese Sofubi</div><div class="wh">Yellow Submarine (west side priority stop)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Gachapon</div><div class="wh">Gachapon Street across from Yodobashi · Don Quijote ground floor</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Vinyl Records / Physical Media</div><div class="wh">Tower Records Shinjuku — anime soundtracks, J-pop, limited editions</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Arcade / Crane Game Prizes</div><div class="wh">Kabukicho Tower · GiGO Arcade · ME TOKYO Shinjuku</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Clothing (larger size)</div><div class="wh">Sakazen Shinjuku (XS–4XL) · Gap Japan (US sizing)</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ AKIHABARA ══════════════════════ -->
+<div id="akiba" class="section">
+  <div class="area-hdr"><div class="area-title">Akihabara</div><div class="area-kanji">秋葉原 — Electric Town</div></div>
+  <div class="note">Full day. Start at Radio Kaikan, work the main strip, then side streets. Best finds are often off the main drag.</div>
+  <div class="note" style="border-left-color:var(--yellow);background:rgba(255,230,0,.05);color:var(--yellow)">🔒 LOCKERS — Akihabara Station has coin lockers at both exits. 7-Eleven stores in the area now have locker space — look for the locker kiosk inside. Drop bags before shopping to travel light. ¥400–¥700 for station lockers depending on size.</div>
+
+  <div class="cat">Figures, Anime Goods & Collectibles</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Radio Kaikan ← FIRST STOP</div><div class="tags"><span class="tag tp">First Stop</span><span class="tag tf">Figures</span></div><div class="cdesc">Contains <strong>AmiAmi</strong> (new/near-new figures, good prices) and <strong>ASTOP</strong> (higher-end, premium scales and limited items).</div></div>
+    <div class="card"><div class="cname">AmiAmi Main Store (2 floors)</div><div class="tags"><span class="tag tf">Figures</span></div><div class="cdesc">Separate from Radio Kaikan branch. Different stock — compare prices between both.</div></div>
+    <div class="card"><div class="cname">Tokyo Figures</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span></div><div class="cdesc">New and used figures, mid-range prices. Good for older scales that have sold out elsewhere.</div></div>
+    <div class="card"><div class="cname">Kotobukiya Akihabara (flagship)</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tr">Gunpla</span></div><div class="cdesc">First-party scales, Frame Arms, ArtFX statues, Hexa Gear kits at retail. Display floor shows upcoming releases. Akihabara exclusives.</div></div>
+    <div class="card"><div class="cname">Volks Hobby Paradise 2</div><div class="tags"><span class="tag tf">Figures</span></div><div class="cdesc">Second Volks location — reportedly more reasonably priced. Dollfie Dream, resin figures, custom parts.</div></div>
+    <div class="card"><div class="cname">Lashinbang Akihabara</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Used anime goods — figures, doujinshi, magazines, merch. Stock rotates constantly.</div></div>
+    <div class="card"><div class="cname">Rare Item Studio</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Specialty shop for rare and high-value collectible figures. Good for hunting older, out-of-print scales and limited items that don't surface at regular secondhand stores.</div></div>
+    <div class="card"><div class="cname">Love Merci</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tr">Anime Goods</span></div><div class="cdesc">Figures and anime goods with a focus on bishoujo scales and related merchandise. Worth a pass on the Akihabara circuit.</div></div>
+    <div class="card"><div class="cname">Good Smile Company Pop-Up</div><div class="tags"><span class="tag tf">Figures</span><span class="tag te">Verify Active</span></div><div class="cdesc">Check Twitter/X before April 22 to confirm if active. Nendoroids, Figmas, scale figures, exclusive colorways if running.</div></div>
+    <div class="card"><div class="cname">Tamashii Nations Pop-Up</div><div class="tags"><span class="tag tf">Figures</span><span class="tag te">Verify Active</span></div><div class="cdesc">Check before going. S.H.Figuarts, Metal Build, Soul of Chogokin, Robot Spirits.</div></div>
+    <div class="card"><div class="cname">TRADER / TRADER 2</div><div class="tags"><span class="tag tu">Secondhand</span><span class="tag tf">Figures</span></div><div class="cdesc">Secondhand figures — noted as pricey. TRADER 2 has different stock. Both worth a quick pass.</div></div>
+    <div class="card"><div class="cname">Gear 2</div><div class="tags"><span class="tag tu">Secondhand</span></div><div class="cdesc">Quick scan — figures, trading cards, misc anime goods.</div></div>
+    <div class="card"><div class="cname">Animate Akihabara (largest branch)</div><div class="tags"><span class="tag tb">Manga</span><span class="tag tr">Anime Goods</span></div><div class="cdesc">Multiple floors: manga, anime, light novels, CDs, character goods. Current season merch and chain-wide exclusives.</div></div>
+    <div class="card"><div class="cname">Hirose (Sofmap)</div><div class="tags"><span class="tag tg">Electronics</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Sofmap is an electronics and media chain with multiple branches in Akihabara — used games, DVDs, Blu-rays, CDs, and electronics. Good for physical media hunting and secondhand game hardware alongside BIC Camera.</div></div>
+  </div>
+
+  <div class="cat cy">Sofubi & Retro Toys</div>
+  <div class="grid">
+    <div class="card cy"><div class="cname">OneUP Akihabara ← PRIORITY SOFUBI</div><div class="tags"><span class="tag ts">Sofubi</span><span class="tag tp">Priority</span></div><div class="cdesc">Top Akihabara destination for sofubi. Japanese kaiju, indie sofubi artists, vintage reproductions. <strong>Ask staff specifically about sofubi stock — not all on the floor.</strong></div></div>
+    <div class="card cy"><div class="cname">Goldenage Toys</div><div class="tags"><span class="tag tr">Retro Japanese Toys</span><span class="tag ts">Sofubi</span></div><div class="cdesc">Vintage and retro JAPANESE toys — tin toys, old sofubi, character goods. <strong>Not American imports.</strong> Serious collector shop.</div></div>
+    <div class="card cy"><div class="cname">Drud Toy Shop</div><div class="tags"><span class="tag ts">Sofubi</span><span class="tag tr">Designer Toys</span></div><div class="cdesc">Designer and sofubi toys. <strong>Confirm current location before going</strong> — smaller shops sometimes relocate.</div></div>
+    <div class="card cy"><div class="cname">Ken Chan</div><div class="tags"><span class="tag tr">Retro Toys</span><span class="tag ts">Sofubi</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Retro and vintage Japanese toy shop in Akihabara. Good for old sofubi, character toys, and nostalgic goods that fall between the cracks of the bigger chains.</div></div>
+    <div class="card cy"><div class="cname">Geo Mobile</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tg">Electronics</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Secondhand games, electronics, and mobile devices. Good all-rounder for retro game hunting alongside Super Potato and Beep. Multiple Akihabara locations.</div></div>
+  </div>
+
+  <div class="cat yl">Retro Games</div>
+  <div class="grid">
+    <div class="card yl"><div class="cname">Super Potato Akihabara</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tp">Priority</span></div><div class="cdesc">The original and most famous branch. Famicom, Super Famicom, PC-Engine, Mega Drive, Saturn, PS1/PS2 — all original Japanese hardware and software. Top floor has dedicated display/rare items. A pilgrimage stop.</div></div>
+    <div class="card yl"><div class="cname">Beep</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tg">Electronics</span></div><div class="cdesc">Well-regarded retro game and electronics specialist in Akihabara. Focuses on older hardware and software — PC-88, X68000, FM Towns, and other Japanese home computers alongside standard retro consoles. Good for deep hardware hunting beyond just Famicom and SNES.</div></div>
+    <div class="card yl"><div class="cname">Retro Game Camp</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Retro game shop with a solid selection of used Japanese console software and hardware. Worth scanning alongside Super Potato and Beep for price comparison and stock differences.</div></div>
+  </div>
+
+  <div class="cat">Books, Manga & Adult</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Mandarake Akihabara</div><div class="tags"><span class="tag tb">Manga</span><span class="tag ta">Adult</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Multi-floor: manga, doujinshi, hentai, gravure, figures, games, costumes. <strong>Bag check at entrance (locker).</strong> Check 画集 section for secondhand art books.</div></div>
+    <div class="card"><div class="cname">M's (M's Pop Life)</div><div class="tags"><span class="tag ta">Adult</span><span class="tag tb">Gravure</span></div><div class="cdesc">Dedicated adult goods and gravure — clean, organized, standard retail. Photobooks, DVDs, adult figures, magazines.</div></div>
+    <div class="card"><div class="cname">Surugaya Akihabara</div><div class="tags"><span class="tag tsk">Low Priority</span></div><div class="cdesc">NOT a priority — Shinjuku Marui Annex Surugaya is better. Quick pass only if already right next to it.</div></div>
+  </div>
+
+  <div class="cat">Electronics & Big Box</div>
+  <div class="grid">
+    <div class="card"><div class="cname">BIC Camera Akihabara</div><div class="tags"><span class="tag tg">Games</span><span class="tag tr">Hardware</span><span class="tag twt">Watches</span></div><div class="cdesc">Physical game hunting, retro hardware, accessories, large watch section. Tax-free with passport over ¥5,000.</div></div>
+    <div class="card"><div class="cname">Don Quijote Akihabara</div><div class="tags"><span class="tag tga">Gachapon</span><span class="tag te">24hr</span></div><div class="cdesc">Gachapon machines on ground floor, cosplay, novelty items. Often open 24hr.</div></div>
+  </div>
+
+  <div class="cat fo">Food — Akihabara</div>
+  <div class="grid">
+    <div class="card fo"><div class="cname">GoGo Curry</div><div class="tags"><span class="tag tfo">Curry</span><span class="tag tp">Best Curry</span></div><div class="cdesc">Kanazawa-style Japanese curry — thick, dark, rich sauce over rice with a cutlet. Iconic Akihabara lunch spot. Fast, cheap, satisfying. Multiple locations in the area.</div></div>
+    <div class="card fo"><div class="cname">Antep Kebab</div><div class="tags"><span class="tag tfo">Turkish</span><span class="tag tfo">Street Food</span></div><div class="cdesc">Popular Turkish kebab shop in Akihabara — cheap, fast, filling. Good for a quick bite between shops. Well-known among the Akihabara regulars.</div></div>
+  </div>
+
+  <div class="cat ni">Nightlife & Bars — Akihabara</div>
+  <div class="grid">
+    <div class="card ni"><div class="cname">HEY (Hirose Entertainment Yard)</div><div class="tags"><span class="tag tc">Arcade</span><span class="tag tp">Priority Arcade</span></div><div class="cdesc">One of Akihabara's best-known arcades — multiple floors of actual game cabinets (not just crane games). Fighting games, rhythm games, shooting games. Where serious arcade players go. Late hours.</div></div>
+    <div class="card ni"><div class="cname">The HUB</div><div class="tags"><span class="tag tni">Bar</span><span class="tag te">Chain</span></div><div class="cdesc">British-style pub chain with a location in Akihabara. Good for a post-shopping drink — familiar format, English-friendly, decent beer selection. Not uniquely Japanese but a reliable easy option after a long day in Electric Town.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Akihabara</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Japanese Sofubi</div><div class="wh">OneUP (priority) · Goldenage Toys · Ken Chan · Drud Toy Shop (confirm address)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Anime Scale Figure / Rare Items</div><div class="wh">Kotobukiya · AmiAmi · Tokyo Figures · Lashinbang · Rare Item Studio · Love Merci</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Gunpla</div><div class="wh">Kotobukiya Akihabara flagship · BIC Camera</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Games</div><div class="wh">Super Potato Akihabara · Beep (deep hardware) · Retro Game Camp · Geo Mobile</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Physical Manga / Media</div><div class="wh">Mandarake · Animate · Lashinbang · Sofmap (used DVDs, Blu-rays, CDs)</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ IKEBUKURO ══════════════════════ -->
+<div id="ikebukuro" class="section">
+  <div class="area-hdr"><div class="area-title">Ikebukuro</div><div class="area-kanji">池袋 — Sunshine City Orbit</div></div>
+  <div class="note">Full day — plan for April 25 when FFXIV Exhibition opens. Sunshine City is its own ecosystem. Super Potato alone is worth the trip.</div>
+
+  <div class="cat">Sunshine City Complex</div>
+  <div class="grid">
+    <div class="card yl"><div class="cname">Bandai Cross Store — 3,000 Gachapon Machines</div><div class="tags"><span class="tag tga">Gachapon</span><span class="tag tp">Priority</span></div><div class="cdesc">One of the largest gachapon facilities in Japan. Budget ¥5,000–¥10,000 minimum. Need 50–100+ ¥100 coins. Dragon Ball, One Piece, Gundam, niche character goods — stock rotates.</div></div>
+    <div class="card"><div class="cname">Pokémon Center Mega Tokyo</div><div class="tags"><span class="tag tr">Pokémon</span></div><div class="cdesc">Will be packed — go early or late. Pokémon exclusives, collab items, trading cards.</div></div>
+    <div class="card"><div class="cname">Capcom Plaza (Sunshine City)</div><div class="tags"><span class="tag tg">Games</span><span class="tag tf">Figures</span></div><div class="cdesc">Resident Evil, Street Fighter, Monster Hunter, Devil May Cry merch. Check what's running in late April.</div></div>
+    <div class="card cy"><div class="cname">FFXIV — Warrior of Light Exhibition ← OPENS APR 25</div><div class="tags"><span class="tag tev">Exhibition</span><span class="tag tg" style="font-size:8px">OPENS APR 25</span></div><div class="cdesc">Sunshine City — Bunka Kaikan Building 3F, Exhibition Hall C. Through May 10. World-setting displays and commemorative goods.</div></div>
+  </div>
+
+  <div class="cat">Secondhand & Specialty</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Mandarake Ikebukuro</div><div class="tags"><span class="tag tu">Secondhand</span><span class="tag tb">Books</span></div><div class="cdesc">Smaller than Nakano but solid — doujinshi, used manga, figures.</div></div>
+    <div class="card"><div class="cname">K Books Ikebukuro</div><div class="tags"><span class="tag tb">Doujinshi</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Used doujinshi and manga — hunt by artist or series name. Good for Rocking Jellybean and JoJo doujinshi. Check for illustration art books here too.</div></div>
+    <div class="card"><div class="cname">Lashinbang Ikebukuro</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Good used anime figure selection. Check for older scales at reduced prices.</div></div>
+    <div class="card"><div class="cname">AmiAmi Ikebukuro (smaller branch)</div><div class="tags"><span class="tag tf">Figures</span></div><div class="cdesc">Different stock from Akihabara stores — things sold out there sometimes appear here.</div></div>
+    <div class="card"><div class="cname">Fairy Tail 20th Anniv. / eeo Store</div><div class="tags"><span class="tag tr">Anime Merch</span></div><div class="cdesc">Running from March 21. Hiro Mashima original illustrations for the 20th anniversary.</div></div>
+    <div class="card or"><div class="cname">Sakazen Ikebukuro ← SIZING</div><div class="tags"><span class="tag tsz">XS–4XL</span></div><div class="cdesc">Same chain as Shinjuku — men's inclusive sizing.<span class="addr">Minami-Ikebukuro 2-27-7</span></div></div>
+  </div>
+
+  <div class="cat yl">Retro Games</div>
+  <div class="grid">
+    <div class="card yl"><div class="cname">Super Potato Ikebukuro ← PRIORITY</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tp">Priority</span></div><div class="cdesc">Famicom, Super Famicom, PC-Engine, Mega Drive, Saturn, PS1/PS2. Original Japanese hardware and software. Deep stock. Prices higher than flea markets but selection is unmatched.</div></div>
+    <div class="card"><div class="cname">Book Off Ikebukuro (large location)</div><div class="tags"><span class="tag tr">Retro Games</span><span class="tag tb">Books</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Retro games, manga, art books, CDs. ¥110 manga bins — check game section for Famicom and SNES carts. Bargain bins worth digging for cheap art book finds.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Ikebukuro</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Gachapon Haul ← MAIN EVENT</div><div class="wh">Bandai Cross Store — 3,000 machines · Budget ¥5,000–¥10,000 · 50–100 ¥100 coins minimum</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Games</div><div class="wh">Super Potato (priority) · Book Off ¥110 bins · check Famicom and SNES carts</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Rocking Jellybean Art Book</div><div class="wh">K Books Ikebukuro — doujinshi and illustration art books</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Physical Manga Volumes</div><div class="wh">Book Off ¥110 bins · Mandarake · K Books</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Clothing (larger size)</div><div class="wh">Sakazen Ikebukuro (XS–4XL) · Minami-Ikebukuro 2-27-7</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SHIBUYA ══════════════════════ -->
+<div id="shibuya" class="section">
+  <div class="area-hdr"><div class="area-title">Shibuya</div><div class="area-kanji">渋谷 — Best at Night</div></div>
+  <div class="note">PARCO alone is 2–3 hours. Hit deadline events (Ace Attorney, JoJo) on Day 1 here.</div>
+
+  <div class="cat">PARCO Department Store (Floors 1–6)</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Nintendo Tokyo (PARCO 6F)</div><div class="tags"><span class="tag tg">Nintendo</span></div><div class="cdesc">Japan-exclusive plushies, clothing, accessories, collab items. About the retail goods, not game software.</div></div>
+    <div class="card"><div class="cname">Jump Shop (PARCO)</div><div class="tags"><span class="tag tr">Shonen Jump</span></div><div class="cdesc">Official Shonen Jump merch — One Piece, Naruto, Dragon Ball, Demon Slayer, JJK.</div></div>
+    <div class="card"><div class="cname">Capcom Store (PARCO)</div><div class="tags"><span class="tag tg">Capcom</span></div><div class="cdesc">Different stock from Ikebukuro Capcom — may have PARCO-exclusive collab items.</div></div>
+  </div>
+
+  <div class="cat">Deadline Events — Ends April 24</div>
+  <div class="grid">
+    <div class="card"><div class="cname">JoJo Animate Fair ← ENDS APR 24</div><div class="tags"><span class="tag tdl">ENDS APR 24</span></div><div class="cdesc">Animate Shibuya. Golden Wind &amp; Stone Ocean goods. Spend ¥2,000 = bonus mini card.</div></div>
+    <div class="card"><div class="cname">Ace Attorney × Sumie SHOP ← ENDS APR 24</div><div class="tags"><span class="tag tdl">ENDS APR 24</span></div><div class="cdesc">SHIBUYA TSUTAYA 6F. Gold-foil postcards (4 types), sumie-style goods.</div></div>
+  </div>
+
+  <div class="cat">Secondhand, Sofubi & Books</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Mandarake Shibuya</div><div class="tags"><span class="tag tu">Secondhand</span><span class="tag tp">Noted as Great</span></div><div class="cdesc">One of the better Mandarake locations. Hit in addition to Nakano Broadway, not instead of.</div></div>
+    <div class="card"><div class="cname">Lashinbang Shibuya</div><div class="tags"><span class="tag tf">Figures</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Different inventory from Ikebukuro branch — worth comparing both.</div></div>
+    <div class="card cy"><div class="cname">HANDS Shibuya (formerly Tokyu Hands)</div><div class="tags"><span class="tag ts">Sofubi</span><span class="tag tr">Designer Toys</span></div><div class="cdesc">Dedicated sofubi and designer toy section. Also art supplies and novelty goods.</div></div>
+  </div>
+
+  <div class="cat">Harajuku (15-Min Walk from Shibuya)</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Harajuku / Takeshita-dori</div><div class="tags"><span class="tag tr">Character Goods</span><span class="tag ts">Designer Toys</span></div><div class="cdesc">Character goods shops, indie designer toy stores. La Foret Harajuku building — indie fashion, designer toy and art book shops. 30–45 min add-on during Shibuya day.</div></div>
+    <div class="card"><div class="cname">Mofusand Shop — Harajuku</div><div class="tags"><span class="tag tr">Character Goods</span><span class="tag te">Verify Active</span></div><div class="cdesc">Mofusand (cat character brand) goods. Check active status before going — may be a rotating pop-up.<span class="addr">3 Chome-23-6 Jingumae, Shibuya</span></div></div>
+    <div class="card cy"><div class="cname">Atmos (Harajuku / Shibuya / Omotesando)</div><div class="tags"><span class="tag tsh">Shoes</span><span class="tag tr">Sneakers</span></div><div class="cdesc">Tokyo's leading sneaker select shop. Nike, Adidas, New Balance — limited editions and exclusives. Better shot at larger sizes than most standard Tokyo shoe shops. Multiple locations — check across branches.</div></div>
+    <div class="card cy"><div class="cname">Nike Harajuku "N-Hara"</div><div class="tags"><span class="tag tsh">Shoes</span><span class="tag tp">Best for Large Sizes</span></div><div class="cdesc">3-floor flagship. Most reliable Nike location for larger Western sizes. Lottery sales on hot releases. Japan-exclusive colorways.<span class="addr">1-13-12 Jingumae, Shibuya-ku</span></div></div>
+    <div class="card"><div class="cname">WORM TOKYO (Harajuku)</div><div class="tags"><span class="tag tsh">Shoes</span><span class="tag tu">Deadstock</span></div><div class="cdesc">Used and deadstock sneakers, 30+ years experience. Rare models, Air Jordans, Air Max, Japan-exclusive pairs. Vintage deadstock sometimes surfaces in larger sizes.</div></div>
+    <div class="card"><div class="cname">Kicks Lab (Harajuku)</div><div class="tags"><span class="tag tsh">Shoes</span></div><div class="cdesc">Imports rare items from US and Europe — better odds for US 12–13 than domestic shops.</div></div>
+  </div>
+
+  <div class="cat">General Shopping — Shibuya Area</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Gelato Pique — Shibuya Hikarie</div><div class="tags"><span class="tag te">Lifestyle</span></div><div class="cdesc">Japanese loungewear and lifestyle brand — soft, cozy pieces. Connected directly to Shibuya Station.<span class="addr">2 Chome-21-1 Shibuya (Hikarie ShinQs 3F)</span></div></div>
+  </div>
+
+  <div class="cat fo">Food — Shibuya</div>
+  <div class="grid">
+    <div class="card fo"><div class="cname">0-Second Lemon Sour — Tokiwatei</div><div class="tags"><span class="tag tfo">Yakiniku</span><span class="tag tfo">BBQ</span></div><div class="cdesc">Yakiniku BBQ + signature 0-second lemon sour pour. Dogenzaka area.<span class="addr">1 Chome-5-5 Dogenzaka, Shibuya (Fuji Building 2F)</span></div></div>
+    <div class="card fo"><div class="cname">Sushi Labo (21-Course Omakase)</div><div class="tags"><span class="tag tfo">Omakase</span><span class="tag tres">Book Ahead</span></div><div class="cdesc">Full 21-course omakase. Plan as a dedicated evening.<span class="addr">1 Chome-6-4, Shibuya</span></div></div>
+    <div class="card fo"><div class="cname">Som Tum Der Tokyo (Thai Food)</div><div class="tags"><span class="tag tfo">Thai</span></div><div class="cdesc">Well-regarded Thai restaurant. Good option for a non-Japanese meal night.<span class="addr">1 Chome-58-10 Yoyogi, Shibuya</span></div></div>
+  </div>
+
+  <div class="cat ni">Nightlife — Shibuya</div>
+  <div class="grid">
+    <div class="card ni"><div class="cname">Atom Tokyo</div><div class="tags"><span class="tag tni">Club</span><span class="tag tp">One of the Most Popular</span></div><div class="cdesc">One of Tokyo's most legendary clubs. EDM. <strong>Best on weekdays</strong> — less crowded, better vibe than weekends. Multiple rooms, big name in the city.<span class="addr">5 Chome-17-13 Shinjuku, 7F/8F</span></div></div>
+    <div class="card ni"><div class="cname">Harlem</div><div class="tags"><span class="tag tni">Club</span><span class="tag tp">Best Hip Hop in Japan</span></div><div class="cdesc">The best hip hop club in Japan — consistently cited as the top spot for the genre. <strong>Same building as Atom Tokyo.</strong> If hip hop is the priority, this is the one.</div></div>
+    <div class="card ni"><div class="cname">Womb</div><div class="tags"><span class="tag tni">Club</span><span class="tag tp">World-Class</span><span class="tag te">Check Schedule</span></div><div class="cdesc">One of the most famous clubs in Tokyo — potentially in the world. EDM, Techno, Dubstep. <strong>Check the schedule before going</strong> — the quality and genre varies significantly by the night and headliner.</div></div>
+    <div class="card ni"><div class="cname">Bala Club</div><div class="tags"><span class="tag tni">Club</span><span class="tag tlx">High-End</span></div><div class="cdesc">High-end nightclub, welcoming to international visitors. Hip hop focused. Good crowd, upscale setting.</div></div>
+    <div class="card ni"><div class="cname">Camelot</div><div class="tags"><span class="tag tni">Club</span><span class="tag te">EDM · Hip Hop</span></div><div class="cdesc">EDM and hip hop. Good option — solid across both genres, well-regarded by regulars as a reliable night out.</div></div>
+    <div class="card ni"><div class="cname">Ce La Vi</div><div class="tags"><span class="tag tni">Club</span><span class="tag tlx">International</span><span class="tag te">Dress Code</span></div><div class="cdesc">International crowd, alright overall. <strong>Dress code enforced</strong> — dress sharp before going. More of a see-and-be-seen venue than a pure club experience.</div></div>
+    <div class="card ni"><div class="cname">TK Nightclub</div><div class="tags"><span class="tag tni">Club</span><span class="tag te">EDM</span></div><div class="cdesc">EDM-focused Shibuya club. Straightforward option for a heavy electronic night.</div></div>
+    <div class="card ni"><div class="cname">Dogenzaka Church</div><div class="tags"><span class="tag tni">Club</span></div><div class="cdesc">Club in Shibuya's Dogenzaka area. Pairs naturally with a Shibuya night out.<span class="addr">2 Chome-16-5 Dogenzaka, Shibuya (Central Kyoritsu Building 1F)</span></div></div>
+  </div>
+
+  <div class="cat">Hunt List — Shibuya & Harajuku</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">JoJo Merch ← ENDS APR 24</div><div class="wh">Animate Shibuya — spend ¥2,000 → bonus mini card</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Japanese Sofubi</div><div class="wh">HANDS Shibuya dedicated sofubi section</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Shoes (large size)</div><div class="wh">Nike Harajuku "N-Hara" (most reliable large sizes) · Atmos (check all branches) · WORM TOKYO (deadstock) · Kicks Lab (imports US/EU sizes)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Designer Toy / Art Book Wildcards</div><div class="wh">La Foret Harajuku building — indie shops worth scanning</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ NAKANO ══════════════════════ -->
+<div id="nakano" class="section">
+  <div class="area-hdr"><div class="area-title">Nakano Broadway</div><div class="area-kanji">中野ブロードウェイ — The Holy Grail</div></div>
+  <div class="note">Minimum half-day. Chuo Line to Nakano Station → walk through covered shotengai to Broadway. Less touristy than Akihabara. Prices often lower.</div>
+
+  <div class="cat gn">Mandarake — The Core Reason</div>
+  <div class="grid grid-wide">
+    <div class="card gn"><div class="cname">Mandarake Nakano Broadway — Floors 2, 3, 4 ← TOP PRIORITY</div><div class="tags"><span class="tag tu">Secondhand</span><span class="tag tp">Top Priority</span><span class="tag tb">Books</span><span class="tag ta">Adult</span><span class="tag ts">Sofubi</span><span class="tag tr">Vintage Toys</span></div><div class="cdesc">Not one store — a cluster of specialty Mandarake shops across three floors. Each section covers a different category: manga, doujinshi, figures, vintage toys, cosplay, adult goods, games, and more. <strong>Bag check at entrance (locker).</strong> Go slow, floor by floor. Prices often lower than Akihabara Mandarake. Budget 2+ hours.</div></div>
+  </div>
+
+  <div class="cat tb">Art Books — Primary Hunting Ground</div>
+  <div class="note grn">Mandarake Nakano is the #1 destination for used art books in Japan. Look for 画集 (gashu) sections across all floors. Prices lower than Akihabara Mandarake.</div>
+  <div class="abgrid">
+    <div class="abcard"><div class="abartist">Rocking Jellybean</div><div class="abnote">Illustration/doujinshi hybrid releases. Mandarake doujinshi sections here and K Books Ikebukuro.</div></div>
+    <div class="abcard"><div class="abartist">Hunt Order</div><div class="abnote">1. Mandarake Nakano (best used) → 2. Kinokuniya Shinjuku (best new) → 3. Mandarake Akihabara → 4. Book Off Shinjuku → 5. Jimbocho. Look for 画集 on section signs.</div></div>
+  </div>
+
+  <div class="cat">Other Broadway Shops</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Broadway Corridor Shops</div><div class="tags"><span class="tag tr">Retro</span><span class="tag tu">Secondhand</span></div><div class="cdesc">Dozens of small specialty shops in the corridors — vintage card shops, idol goods, retro game stalls, old figure traders. Top floor: inexpensive older-stock toy stalls. Don't rush these.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Nakano Broadway</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Rocking Jellybean Art Book</div><div class="wh">Mandarake doujinshi sections — check all three floors</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Anime Scale Figure (older/rarer)</div><div class="wh">Mandarake figures floors — lower prices than Akihabara Mandarake</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Watches (vintage)</div><div class="wh">Broadway corridor stalls — Casio, Seiko, other vintage Japanese pieces</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Physical Manga / Doujinshi</div><div class="wh">Mandarake manga floors · best used selection in the city</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ MITAKA ══════════════════════ -->
+<div id="mitaka" class="section">
+  <div class="area-hdr"><div class="area-title">Mitaka / Kichijoji</div><div class="area-kanji">三鷹 · 吉祥寺 — Off the Grid</div></div>
+  <div class="note">Chuo Line from Shinjuku — Kichijoji 15 min, Mitaka 20 min. Less touristy, neighborhood feel, unplanned treasure hunt territory. Ghibli Museum: not possible — lottery-based, skip.</div>
+
+  <div class="cat pu">Toy & Hobby Shops</div>
+  <div class="grid">
+    <div class="card pu"><div class="cname">1丁目1番地よろずや (Ichome Ichibanchi Yorozuya)</div><div class="tags"><span class="tag tr">Retro Japanese Toys</span><span class="tag ts">Sofubi</span><span class="tag tp">Prioritize</span></div><div class="cdesc">Nostalgic, retro, and character goods — tin toys, older sofubi, vintage Japanese goods. Appeared in both research passes — worth prioritizing.</div></div>
+    <div class="card pu"><div class="cname">Sunny Side Up! (サニーサイドアップ！)</div><div class="tags"><span class="tag tr">Retro Toys</span><span class="tag ts">Sofubi</span></div><div class="cdesc">Local collector-oriented toy shop — sofubi and retro toys.</div></div>
+    <div class="card pu"><div class="cname">Kiddy Land Kichijoji</div><div class="tags"><span class="tag tf">Character Goods</span></div><div class="cdesc">Character goods, plushies — more mainstream but different stock than specialty shops.</div></div>
+    <div class="card pu"><div class="cname">Parco Kichijoji</div><div class="tags"><span class="tag tf">Hobby Retail</span></div><div class="cdesc">Toy and hobby retailers inside — less intense than Shibuya PARCO.</div></div>
+    <div class="card pu"><div class="cname">2nd Street Kichijoji (Sun Road)</div><div class="tags"><span class="tag tu">Secondhand</span></div><div class="cdesc">Used select shop — secondhand toys and character items alongside clothing.</div></div>
+    <div class="card"><div class="cname">General Exploring</div><div class="tags"><span class="tag te">Unplanned</span></div><div class="cdesc">Small antique shops, thrift stores, vintage spots found by walking. Inokashira Park has market stalls on weekends. Leave time unscheduled.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Mitaka / Kichijoji</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Japanese Sofubi</div><div class="wh">1丁目1番地よろずや (priority) · Sunny Side Up! — the whole point of coming here</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Vintage Japanese Toys / Character Goods</div><div class="wh">1丁目1番地よろずや · Inokashira Park market stalls (weekends) · antique shops on foot</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Secondhand Toys & Character Items</div><div class="wh">2nd Street Kichijoji Sun Road · Kiddy Land for mainstream gaps</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ GINZA ══════════════════════ -->
+<div id="ginza" class="section">
+  <div class="area-hdr"><div class="area-title">Ginza & High-End</div><div class="area-kanji">銀座 — Pairs with DAN DA DAN Exhibition</div></div>
+  <div class="note">Matsuya Ginza houses both the DAN DA DAN Exhibition (8F) AND a Rimowa location (2F). Best combined on a Ginza detour day.</div>
+
+  <div class="cat yl">RIMOWA — All Tokyo Locations</div>
+  <div class="note yel">Bring passport for tax-free. Lines form at flagship on weekends — weekday or morning preferred. Flagship stores offer in-store customization (monogramming, coloured handles, personalised builds).</div>
+  <div class="grid">
+    <div class="card yl"><div class="cname">Ginza 7-chome Flagship ← MAIN STORE</div><div class="tags"><span class="tag tlx">Flagship</span><span class="tag tp">Best Experience</span></div><div class="cdesc">2-floor flagship. Client Care Center + in-store workshop. Workshop does repairs and custom personalised builds. Heritage section shows vintage Rimowa history.<span class="addr">7-9-17 Ginza, Yamato Building 1F</span></div></div>
+    <div class="card yl"><div class="cname">Matsuya Ginza 2F ← DAN DA DAN COMBO</div><div class="tags"><span class="tag tlx">Rimowa</span><span class="tag tp">Combo w/ Exhibition</span></div><div class="cdesc">Same building as DAN DA DAN Exhibition. Most convenient.<span class="addr">Ginza 3-6-1, Matsuya Ginza 2F</span></div></div>
+    <div class="card"><div class="cname">Rimowa Omotesando</div><div class="tags"><span class="tag tlx">Rimowa</span></div><div class="cdesc">Combine with Harajuku sneaker shops.<span class="addr">Jingumae 5-8-2, Shibuya</span></div></div>
+    <div class="card"><div class="cname">Rimowa Shinjuku Takashimaya 3F</div><div class="tags"><span class="tag tlx">Rimowa</span></div><div class="cdesc">Convenient if already in the Shinjuku area.<span class="addr">Sendagaya 5-24-2</span></div></div>
+    <div class="card"><div class="cname">Rimowa Marunouchi</div><div class="tags"><span class="tag tlx">Rimowa</span></div><div class="cdesc">Near Tokyo Station.<span class="addr">Marunouchi 3-4-1, Shin Kokusai Building 1F</span></div></div>
+  </div>
+
+  <div class="cat">Ginza Six & Omotesando Hills</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Ginza Six</div><div class="tags"><span class="tag tlx">Luxury Mall</span></div><div class="cdesc">Massive luxury mall. <strong>Dover Street Market Ginza</strong> — Rei Kawakubo / Comme des Garçons concept shop. Curated multi-brand + art installations.</div></div>
+    <div class="card"><div class="cname">Omotesando Hills</div><div class="tags"><span class="tag tlx">Luxury Mall</span><span class="tag tsz">Western Sizing</span></div><div class="cdesc">International flagships (Prada, Louis Vuitton, Dior, etc.) stock standard Western sizes. Better sizing for tall/larger builds.</div></div>
+    <div class="card"><div class="cname">Grand Seiko / Watch Boutiques</div><div class="tags"><span class="tag twt">Watches</span><span class="tag tlx">Luxury</span></div><div class="cdesc">Grand Seiko, Rolex, Patek, IWC — all in Ginza or Omotesando. Tax-free eligible with passport.</div></div>
+    <div class="card"><div class="cname">ReFa Shop — Ginza Six B1</div><div class="tags"><span class="tag te">Beauty</span></div><div class="cdesc">ReFa beauty and wellness products. Easy add-on if already in Ginza Six.<span class="addr">6 Chome-10-1 Ginza, GINZA SIX B1</span></div></div>
+  </div>
+
+  <div class="cat or">Clothing & Sizing — Ginza</div>
+  <div class="grid">
+    <div class="card or"><div class="cname">Uniqlo / GU — Ginza Flagship</div><div class="tags"><span class="tag tsz">Up to XXL</span><span class="tag tp">Best Sizing for Basics</span></div><div class="cdesc">Largest Uniqlo in Japan. Up to XXL. GU is the budget sister brand, same area.<span class="addr">2 Chome-2-14 Ginza, Chuo City</span></div></div>
+    <div class="card"><div class="cname">Muji Flagship (無印良品)</div><div class="tags"><span class="tag tsz">Runs Larger</span><span class="tag te">Lifestyle</span></div><div class="cdesc">Largest Muji in the world. Clothing runs larger than typical Japanese brands — worth trying on. Also stationary, home goods, food.<span class="addr">2-3-5 Ginza, Chuo City</span></div></div>
+  </div>
+
+  <div class="cat fo">Food — Ginza</div>
+  <div class="grid">
+    <div class="card fo"><div class="cname">Godaime Hanayama Udon Ginza</div><div class="tags"><span class="tag tfo">Udon</span></div><div class="cdesc">Good lunch stop if already in Ginza for Rimowa or DAN DA DAN.<span class="addr">3 Chome-14-13 Ginza, Chuo City</span></div></div>
+    <div class="card fo"><div class="cname">Ginza Hippo (Seafood Dining Buffet)</div><div class="tags"><span class="tag tfo">Seafood</span><span class="tag tfo">Buffet</span></div><div class="cdesc">Seafood buffet in Ginza basement. All-you-can-eat format.<span class="addr">8 Chome-10 Ginza B1, Chuo City</span></div></div>
+  </div>
+
+  <div class="cat">Hunt List — Ginza & Omotesando</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Rimowa</div><div class="wh">Ginza 7-chome flagship (best full experience) · Matsuya Ginza 2F (combo with DAN DA DAN 8F)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Clothing (larger size)</div><div class="wh">Uniqlo Ginza flagship (up to XXL) · Muji Ginza (runs larger) · Omotesando Hills (Western-sized designer flagships)</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Watches (luxury)</div><div class="wh">Grand Seiko · Rolex · Patek · IWC — Ginza and Omotesando boutiques · Tax-free with passport</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ OTHER AREAS ══════════════════════ -->
+<div id="other" class="section">
+  <div class="area-hdr"><div class="area-title">Other Areas</div><div class="area-kanji">その他のエリア</div></div>
+
+  <div class="cat ni">Nightlife — Roppongi</div>
+  <div class="note" style="border-left-color:#a29bfe;background:rgba(162,155,254,.05);color:#a29bfe">Roppongi is Tokyo's international nightlife hub — ~25 min from Shinjuku by subway (Oedo Line or Hibiya Line). Higher-end, more international crowd than Shinjuku or Shibuya. Clubs here skew upscale — dress accordingly.</div>
+  <div class="grid">
+    <div class="card ni"><div class="cname">Wok</div><div class="tags"><span class="tag tni">Club</span><span class="tag tp">Very Famous</span><span class="tag tlx">High-End</span></div><div class="cdesc">International crowd, hip hop focused. One of the most well-known clubs in Roppongi. High-end setting — dress sharp. Frequently cited as the top Roppongi option for hip hop.</div></div>
+    <div class="card ni"><div class="cname">V2 Tokyo</div><div class="tags"><span class="tag tni">Club</span><span class="tag te">Japanese Disco · EDM</span></div><div class="cdesc">Casual vibe — Japanese disco and EDM. More accessible and laid-back than the heavier Roppongi clubs. Good option if the group wants something less intense.</div></div>
+    <div class="card ni"><div class="cname">Sel Octagon Tokyo</div><div class="tags"><span class="tag tni">Club</span><span class="tag tp">Heavy EDM</span></div><div class="cdesc">Heavy EDM. One of the serious electronic music venues in Roppongi — big production, loud, committed to the genre. Not a casual drop-in — come ready for it.</div></div>
+  </div>
+
+  <div class="cat">Must-See</div>
+  <div class="grid grid-wide">
+    <div class="card gn"><div class="cname">Tokyo City Flea Market — Oi Racecourse ← MUST-SEE</div><div class="tags"><span class="tag tp">Definite Stop</span><span class="tag tr">Retro Toys</span><span class="tag tu">Secondhand</span></div><div class="cdesc"><span class="addr">2-1-2 Katsushima, Shinagawa · Oi Keibajo-mae Station, Tokyo Monorail (~20 min from Hamamatsucho)</span>Hours: 9am – 2:30pm &nbsp;|&nbsp; Entry: FREE &nbsp;|&nbsp; <strong>April 25 (Sat) + April 26 (Sun)</strong><br>Plan: April 25 morning → leave by noon → Ikebukuro for FFXIV + Super Potato<br>300–500 vendors. Hunt: old Japanese toys, retro sofubi, vinyl records, comic books, art, weird novelty items.<br><strong>Arrive at 9am — vendors start packing before close.</strong><br><strong>CANCELLED if rain — check weather the night before. If Apr 25 rains out: go Apr 26.</strong></div></div>
+  </div>
+
+  <div class="cat">Overflow Day Options</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Shimokitazawa (下北沢)</div><div class="tags"><span class="tag tr">Vintage Records</span><span class="tag tu">Thrift</span></div><div class="cdesc">Odakyu Line from Shinjuku, ~15 min. Dozens of small vintage clothing shops, independent record stores, thrift spots. Good for records, vintage band tees, used fashion, indie goods.</div></div>
+    <div class="card"><div class="cname">Jimbocho Book District (神保町)</div><div class="tags"><span class="tag tb">Books</span><span class="tag tu">Used</span><span class="tag tp">Art Books</span></div><div class="cdesc">~25 min from Shinjuku. Hundreds of used bookshops on one street. Hunt: art books, old magazines, photography books, vintage manga, anime reference books, old film posters. Often cheaper than Kinokuniya and Mandarake for out-of-print publications.</div></div>
+    <div class="card"><div class="cname">Hard Off (nearest accessible)</div><div class="tags"><span class="tag tr">Retro</span><span class="tag tu">Thrift</span></div><div class="cdesc">Japanese thrift chain — electronics, old games, household goods. Most locations suburban — check Google Maps for nearest on any given route.</div></div>
+  </div>
+
+  <div class="cat">Ueno / Ameyoko Area</div>
+  <div class="grid">
+    <div class="card at"><div class="cname">Tsukiji Outer Fish Market</div><div class="tags"><span class="tag tat">Market</span></div><div class="cdesc">The outer market is open to the public. Stalls: fresh seafood, tamagoyaki, street food, kitchen goods. Best early morning. Short walk to Ginza. Pairs with Tsukiji Omakase reservation.<span class="addr">4 Chome + partial 6 Chome, Tsukiji, Chuo City</span></div></div>
+    <div class="card fo"><div class="cname">Tsukiji Sushi Omakase</div><div class="tags"><span class="tag tfo">Omakase</span><span class="tag tres">RESERVATION REQUIRED</span></div><div class="cdesc">Must book in advance. Pairs with Tsukiji Outer Market visit same morning.<span class="addr">6 Chome-24-8 Tsukiji, Chuo City</span></div></div>
+    <div class="card at"><div class="cname">Kappabashi (Kitchen Town)</div><div class="tags"><span class="tag tat">Market</span><span class="tag te">Shopping</span></div><div class="cdesc">Street lined with restaurant supply shops — professional knives, ceramics, fake food display models, kitchen tools. Near Ameyoko market.<span class="addr">3 Chome-18-2 Matsugaya, Taito City</span></div></div>
+    <div class="card"><div class="cname">Sasugaya Outlet — Ameyoko</div><div class="tags"><span class="tag tu">Thrift</span><span class="tag te">Clothing</span></div><div class="cdesc">Thrift and discount clothing in the Ameyoko market area. Ameyoko itself is a sprawling outdoor market strip. Mita Sneakers is in the same area for shoe hunting.<span class="addr">6 Chome-4-7 Ueno, Taito City (Ameyoko Welcome Mall 1F)</span></div></div>
+    <div class="card cy"><div class="cname">Mita Sneakers (Ameyoko)</div><div class="tags"><span class="tag tsh">Shoes</span><span class="tag tr">Sneakers</span></div><div class="cdesc">Long-established, 20+ brands, deep inventory. 1 stop from Akihabara on Yamanote Line. Combine with Sasugaya Outlet and Kappabashi for a full Ueno area day.</div></div>
+  </div>
+
+  <div class="cat">Misc</div>
+  <div class="grid">
+    <div class="card"><div class="cname">Tokyo Station Mall</div><div class="tags"><span class="tag te">Transit Stop</span></div><div class="cdesc">Rotating pop-ups + Pokémon Center underground. Not a dedicated destination — pass through when transiting.</div></div>
+    <div class="card"><div class="cname">Gundam Base Tokyo (Odaiba)</div><div class="tags"><span class="tag tsk">Skip — Lottery</span></div><div class="cdesc">Lottery entry + 40+ min travel from Shinjuku. Not worth it. Kotobukiya Akihabara + BIC Camera cover Gunpla needs.</div></div>
+    <div class="card"><div class="cname">Akabane</div><div class="tags"><span class="tag te">Neighborhood</span></div><div class="cdesc">Less touristy, lively bar street (Akabane Ichiban Street). A few retro shops worth discovering.</div></div>
+  </div>
+
+  <div class="cat">Hunt List — Other Areas</div>
+  <div class="wgrid">
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Tokyo City Flea Market ← MUST HIT</div><div class="wh">April 25 (Sat) or 26 (Sun) · 9am sharp · retro toys, sofubi, vinyl, art, weird novelty — wildcards only found here</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Vinyl Records</div><div class="wh">Flea Market stalls · Shimokitazawa (overflow day) · Tower Records Shinjuku</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Art Books (out-of-print)</div><div class="wh">Jimbocho Book District (~25 min from Shinjuku) — cheaper than Mandarake for old/rare titles</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Shoes (large size)</div><div class="wh">Mita Sneakers (Ameyoko, 1 stop from Akihabara) · Kutsu no Hikari · Big-b — look up locations before leaving</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Watches (vintage / secondhand)</div><div class="wh">Hard Off (if near route) · 2nd Street branches — Seiko, Orient, G-Shock</div></div></div>
+    <div class="wi" onclick="chk(this)"><div class="wchk"></div><div><div class="wn">Retro Games (wildcards)</div><div class="wh">Hard Off (if accessible) · Flea Market stalls</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ TIPS & CHEAT SHEET ══════════════════════ -->
+<div id="tips" class="section">
+  <div class="area-hdr"><div class="area-title">Tips & Cheat Sheet</div><div class="area-kanji">ヒント · 旅のコツ</div></div>
+
+  <div class="cat">Transport</div>
+  <div class="tlist">
+    <div class="tip"><strong>Trains & IC Card</strong>Trains stop running around midnight — plan nights accordingly. Rush hour: weekdays 7–9 AM and 5–7 PM — packed, avoid if possible. Get Suica or Pasmo IC card at the airport immediately, or download the Suica app before leaving. Loads on all trains, buses, and most convenience stores.</div>
+    <div class="tip"><strong>Luggage Delivery — Yamato Transport (クロネコヤマト)</strong>Available at any convenience store. Next-day delivery if sent before 4 PM. Use to ship boxes home from the hotel rather than checking additional bags.</div>
+  </div>
+
+  <div class="cat">Cash & Payments</div>
+  <div class="tlist">
+    <div class="tip"><strong>Cash</strong>Most small shops and secondhand stores are cash only. Exchange approximately $500–$700 before or on arrival. 7-Eleven and Japan Post ATMs are most reliable for international cards. Budget ¥100,000+ for a full collector trip. Get a coin pouch — coins accumulate fast.</div>
+    <div class="tip"><strong>At Restaurants</strong>Bring the check to the front counter to pay — don't wait at the table. Put cash or card in the small tray provided — not directly in someone's hand.</div>
+    <div class="tip"><strong>Tax-Free</strong>Passport required at electronics and some hobby stores. Over ¥5,000 per purchase qualifies — always ask at the register. <strong>!! Tax-free bags get sealed and cannot be opened until you leave the country !!</strong></div>
+    <div class="tip"><strong>Gachapon Coins</strong>Collect ¥100 coins from Day 1 — break bills at convenience stores. 50–100 coins minimum before Sunshine City Ikebukuro gachapon hall.</div>
+  </div>
+
+  <div class="cat">Etiquette</div>
+  <div class="tlist">
+    <div class="tip"><strong>Etiquette Basics</strong>Don't walk and eat · Don't tip — ever · Don't talk loudly in public spaces · Don't point with your fingers · Pay at the front counter, not at the table · Put payment in the small tray — not directly in someone's hand</div>
+    <div class="tip"><strong>Practical Misc</strong>Eat expensive meals at lunch — many places have affordable lunch specials. Bring hand tissues and mini soap — public bathrooms often have no paper towels. No trash cans in the streets — carry a small bag for trash.</div>
+  </div>
+
+  <div class="cat">In-Store Rules</div>
+  <div class="tlist">
+    <div class="tip"><strong>Bag Check at Mandarake</strong>Every Mandarake location requires bag in a locker at the entrance. Bring a small tote to leave behind. Valuables stay in pockets.</div>
+    <div class="tip"><strong>Adult Content</strong>Completely normalized — sold openly in dedicated store sections. Professional staff, standard retail experience. 18+, some locations ask for ID or passport. Best: Mandarake Akihabara adult floors, M's.</div>
+    <div class="tip"><strong>Tattoos & Onsens</strong>Many onsens and gyms ban visible tattoos. Look specifically for タトゥーOK locations or book a private bath. Thermae-Yu (Kabukicho, walking distance from Hotel Groove Shinjuku) — verify tattoo policy before going.</div>
+  </div>
+
+  <div class="cat">Logistics & Shipping</div>
+  <div class="tlist">
+    <div class="tip"><strong>Shipping Home</strong>Japan Post EMS — reliable, international, expensive. Yamato Transport (クロネコヤマト) from any convenience store for domestic boxes. Bring a foldable soft duffel in luggage for overflow. Ship a box from the hotel if needed.</div>
+    <div class="tip"><strong>April Weather</strong>Highs ~17–21°C (63–70°F), mild and pleasant. Cherry blossom season ending — late bloomers possible. Light rain possible — compact umbrella or ¥500–¥800 from convenience store.</div>
+    <div class="tip"><strong>Flea Market Rain Check</strong>Tokyo City Flea Market is cancelled in rain. Check weather the night before April 25. If cancelled, move to April 26 and rearrange the schedule accordingly.</div>
+  </div>
+
+  <div class="cat">Sizing</div>
+  <div class="tlist">
+    <div class="tip"><strong>Clothing Reality Check</strong>Standard Japanese L ≈ US S/M. Sakazen (Shinjuku + Ikebukuro) is the best bet for larger Western builds — XS to 4XL. Uniqlo Ginza flagship carries up to XXL. International flagships at Omotesando/Ginza carry Western sizing. Anime merch tees from Animate/Jump Shop run 1–2 sizes small.</div>
+    <div class="tip"><strong>Shoe Sizing Reality Check</strong>Japanese standard tops out at 27–28cm (≈ US 9–10) in most regular retail. US 12+ is difficult. US 13+ requires specialty stores: Kutsu no Hikari or Big-b — look up both locations before leaving home. Nike Harajuku and Atmos are the best mainstream bets for larger sizes.</div>
+  </div>
+
+  <div class="cat ph">Pharmacy & Convenience Store Hacks</div>
+  <div class="note" style="border-left-color:#fd79a8;background:rgba(253,121,168,.05);color:#fd79a8">Available at 7-Eleven, Lawson, FamilyMart, Matsumoto Kiyoshi, Sundrug, Welcia. Ask pharmacist if unsure.</div>
+
+  <div class="cat ph" style="font-size:15px;margin-top:16px">Digestion</div>
+  <div class="rxgrid">
+    <div class="rxcard"><div class="rxq">Constipated?</div><div class="rxa">Fibe Mini + Mannan Life Jelly</div></div>
+    <div class="rxcard"><div class="rxq">Extra Constipated?</div><div class="rxa">WithOne</div><div class="rxwarn">!! Takes effect in 7–10 hours — take before bed !!</div></div>
+    <div class="rxcard"><div class="rxq">Bloating & Bubble Guts?</div><div class="rxa">Shin Biofermin S</div></div>
+    <div class="rxcard"><div class="rxq">Diarrhea?</div><div class="rxa">Stoppa</div><div class="rxwarn">!! Can cause drowsiness !!</div></div>
+  </div>
+
+  <div class="cat ph" style="font-size:15px;margin-top:16px">Pain & Muscle</div>
+  <div class="rxgrid">
+    <div class="rxcard"><div class="rxq">Muscle Aches?</div><div class="rxa">Loxonin</div><div class="rxnote">Available in gel, patch, and applicator form</div></div>
+    <div class="rxcard"><div class="rxq">General Pain? (Japanese Tylenol)</div><div class="rxa">EVE or Bufferin</div><div class="rxnote">Also Shin Ruru (brand name equivalent)</div></div>
+    <div class="rxcard"><div class="rxq">Feet Sore?</div><div class="rxa">Kyusoku Jikan</div><div class="rxnote">Available for ankles, feet, and legs</div></div>
+  </div>
+
+  <div class="cat ph" style="font-size:15px;margin-top:16px">Energy & Recovery</div>
+  <div class="rxgrid">
+    <div class="rxcard"><div class="rxq">Jetlagged?</div><div class="rxa">Alinamin Night Recover (sleep) · Lipovitan D (energy)</div></div>
+    <div class="rxcard"><div class="rxq">Hungover?</div><div class="rxa">House Ukon No Chikara</div><div class="rxnote">Turmeric &amp; ginger drink</div></div>
+    <div class="rxcard"><div class="rxq">Need Vitamin C?</div><div class="rxa">Kireto Lemon + Mannan Life Jelly</div></div>
+  </div>
+
+  <div class="cat ph" style="font-size:15px;margin-top:16px">Sleep & Other</div>
+  <div class="rxgrid">
+    <div class="rxcard"><div class="rxq">Insomnia?</div><div class="rxa">Dorieru</div></div>
+    <div class="rxcard"><div class="rxq">Allergies / Hay Fever?</div><div class="rxa">Alesion</div><div class="rxwarn">!! DO NOT mix with other allergy medicine !!</div></div>
+    <div class="rxcard"><div class="rxq">Canker Sore?</div><div class="rxa">Taisho Canker Sore</div></div>
+    <div class="rxcard"><div class="rxq">Motion Sick?</div><div class="rxa">Aneron Niscap</div></div>
+  </div>
+
+  <div class="cat">Cheat Sheet — Print & Laminate</div>
+  <div class="cgrid">
+    <div>
+      <table class="ctable">
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-bottom:8px">Collector Terms</td></tr>
+        <tr><td>中古</td><td>chuko</td><td>used / secondhand</td></tr>
+        <tr><td>限定</td><td>gentei</td><td>limited edition</td></tr>
+        <tr><td>画集</td><td>gashu</td><td>art book</td></tr>
+        <tr><td>ソフビ</td><td>sofubi</td><td>soft vinyl toy</td></tr>
+        <tr><td>ガチャポン</td><td>gachapon</td><td>capsule toy machine</td></tr>
+        <tr><td>フィギュア</td><td>figua</td><td>figure / statue</td></tr>
+        <tr><td>プラモデル</td><td>puramodedu</td><td>plastic model kit</td></tr>
+        <tr><td>同人誌</td><td>doujinshi</td><td>self-published manga</td></tr>
+        <tr><td>グラビア</td><td>guravia</td><td>gravure photography</td></tr>
+        <tr><td>売り切れ</td><td>urikire</td><td>sold out</td></tr>
+        <tr><td>非売品</td><td>hihanbaihin</td><td>not for sale</td></tr>
+        <tr><td>免税</td><td>menzei</td><td>tax-free</td></tr>
+        <tr><td>税込</td><td>zeikomi</td><td>tax included</td></tr>
+        <tr><td>割引</td><td>waribiki</td><td>discount</td></tr>
+        <tr><td>お会計</td><td>okaikei</td><td>the bill / check</td></tr>
+        <tr><td>1階/2階</td><td>ikkai/nikai</td><td>1F / 2F</td></tr>
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 8px 8px">Shopping Phrases</td></tr>
+        <tr><td>これはいくらですか？</td><td>Kore wa ikura desu ka?</td><td>How much is this?</td></tr>
+        <tr><td>カードは使えますか？</td><td>Kaado wa tsukaemasu ka?</td><td>Do you take cards?</td></tr>
+        <tr><td>免税できますか？</td><td>Menzei dekimasu ka?</td><td>Can I get tax-free?</td></tr>
+        <tr><td>袋はいりません</td><td>Fukuro wa irimasen</td><td>No bag needed</td></tr>
+        <tr><td>これください</td><td>Kore kudasai</td><td>This one, please (point at item)</td></tr>
+        <tr><td>これとこれください</td><td>Kore to kore kudasai</td><td>This and this, please</td></tr>
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 8px 8px">Shoe Size Conversion (Men's)</td></tr>
+        <tr><td>JP 27cm</td><td>≈</td><td>US 9</td></tr>
+        <tr><td>JP 28cm</td><td>≈</td><td>US 10</td></tr>
+        <tr><td>JP 29cm</td><td>≈</td><td>US 11</td></tr>
+        <tr><td>JP 30cm</td><td>≈</td><td>US 12</td></tr>
+        <tr><td>JP 31cm</td><td>≈</td><td>US 13</td></tr>
+        <tr><td colspan="3" style="color:var(--muted);font-size:11px;padding-top:8px">US 13+ = specialty stores only (Kutsu no Hikari, Big-b)</td></tr>
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 8px 8px">Shoe Size Conversion (Women's)</td></tr>
+        <tr><td>JP 22cm</td><td>≈</td><td>US 5</td></tr>
+        <tr><td>JP 22.5cm</td><td>≈</td><td>US 5.5</td></tr>
+        <tr><td>JP 23cm</td><td>≈</td><td>US 6</td></tr>
+        <tr><td>JP 23.5cm</td><td>≈</td><td>US 6.5</td></tr>
+        <tr><td>JP 24cm</td><td>≈</td><td>US 7</td></tr>
+        <tr><td>JP 24.5cm</td><td>≈</td><td>US 7.5</td></tr>
+        <tr><td>JP 25cm</td><td>≈</td><td>US 8</td></tr>
+        <tr><td>JP 25.5cm</td><td>≈</td><td>US 8.5</td></tr>
+        <tr><td>JP 26cm</td><td>≈</td><td>US 9</td></tr>
+        <tr><td>JP 26.5cm</td><td>≈</td><td>US 9.5</td></tr>
+        <tr><td>JP 27cm</td><td>≈</td><td>US 10</td></tr>
+      </table>
+      </table>
+    </div>
+    <div>
+      <table class="ctable">
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-bottom:8px">First Meeting</td></tr>
+        <tr><td>ドーモ</td><td>Domo</td><td>Hi / Thanks (versatile, casual)</td></tr>
+        <tr><td>こんにちは</td><td>Konnichiwa</td><td>Hello (standard daytime)</td></tr>
+        <tr><td>はじめまして</td><td>Hajimemashite</td><td>Nice to meet you (first time only)</td></tr>
+        <tr><td>[name] と申します</td><td>[name] to moshimasu</td><td>I am called [name] (polite intro)</td></tr>
+        <tr><td>よろしくお願いします</td><td>Yoroshiku onegaishimasu</td><td>Nice to meet you / please treat me well — say after your name</td></tr>
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 8px 8px">At the Restaurant</td></tr>
+        <tr><td>ひとりです</td><td>Hitori desu</td><td>One person</td></tr>
+        <tr><td>ふたりです</td><td>Futari desu</td><td>Two people</td></tr>
+        <tr><td>さんにんです</td><td>Sannin desu</td><td>Three people</td></tr>
+        <tr><td>大丈夫です</td><td>Daijoobu desu</td><td>No thanks / I'm fine (decline politely)</td></tr>
+        <tr><td>おすすめは？</td><td>Osusume wa arimasu ka?</td><td>Any recommendations?</td></tr>
+        <tr><td>英語メニューは？</td><td>Eigo menu wa arimasu ka?</td><td>Do you have an English menu?</td></tr>
+        <tr><td>これください</td><td>Kore kudasai</td><td>This, please (point at menu item)</td></tr>
+        <tr><td>お会計お願いします</td><td>Okaikei onegaishimasu</td><td>Bill, please</td></tr>
+        <tr><td>ごちそうさまでした</td><td>Gochisosama deshita</td><td>Thank you for the meal (when leaving)</td></tr>
+        <tr><td colspan="3" style="color:var(--pink);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 8px 8px">General Use</td></tr>
+        <tr><td>すみません</td><td>Sumimasen</td><td>Excuse me / to get attention</td></tr>
+        <tr><td>ごめんなさい</td><td>Gomen nasai</td><td>Sorry / I apologize</td></tr>
+        <tr><td>ありがとうございます</td><td>Arigatou gozaimasu</td><td>Thank you</td></tr>
+        <tr><td>おいしい</td><td>Oishii</td><td>Delicious</td></tr>
+        <tr><td>いただきます</td><td>Itadakimasu</td><td>Said before eating (thank you for the meal)</td></tr>
+        <tr><td>はい、お願いします</td><td>Hai, onegaishimasu</td><td>Yes, please</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+function go(id, btn) {
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+var wi = []; // hunt items now inline per neighborhood tab
+function chk(el){el.classList.toggle('ck');el.querySelector('.wchk').textContent=el.classList.contains('ck')?'✓':'';}
+
+</script>
+</body>
+</html>
